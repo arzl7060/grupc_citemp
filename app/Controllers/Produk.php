@@ -20,4 +20,9 @@ class Produk extends BaseController
         $data = $this->ProdukModel->findAll();
         return view('nama_view/',$data);
     }
+
+public function create()
+{
+    
+}
 }
