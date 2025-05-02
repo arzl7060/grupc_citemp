@@ -3,25 +3,25 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ProdukModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
-class Produk extends BaseController
+class Setting extends BaseController
 {
-    protected $ProdukModel;
+    protected $UserModel;
 
     public function __construct()
     {
         // Inisialisasi model di dalam konstruktor
-        $this->ProdukModel = new ProdukModel();
+        $this->UserModel = new UserModel();
     }
     public function index()
     {
         $data = [
-            'title' => 'Produk',
+            'title' => 'Setting',
             'subtitle' => '',
-            'menu' => 'produk',
-            'page' => 'v_produk',
-            $data = $this->ProdukModel->findAll()
+            'menu' => 'setting',
+            'page' => 'v_setting',
+            $data = $this->UserModel->findAll()
         ];
         return view('v_template', $data);
     }

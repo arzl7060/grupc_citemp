@@ -30,3 +30,6 @@ $routes->post('/v_order', 'Order::store');
 $routes->get('/v_order/(:num)', 'Order::detail/$1');
 $routes->get('/v_order/edit/(:num)', 'Order::edit/$1');
 $routes->get('/v_order/delete/(:num)', 'Order::delete/$1');
+
+$routes->get('/v_penjualan', 'Penjualan::index');
+$routes->get('/v_setting', 'Penjualan::index');

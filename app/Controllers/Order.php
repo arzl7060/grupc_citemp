@@ -16,9 +16,16 @@ class Order extends BaseController
     }
     public function index()
     {
-        
-        $data = $this->OrderModel->findAll();
-        return view('nama_view/',$data);
+        $data = [
+            'title' => 'Transaction',
+            'subtitle' => '',
+            'menu' => 'transaksi',
+            'page' => 'v_order',
+            $data = $this->OrderModel->findAll()
+        ];
+        return view('v_template', $data);
     }
+
+
 
 }

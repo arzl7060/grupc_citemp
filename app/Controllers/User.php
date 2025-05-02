@@ -16,8 +16,16 @@ class User extends BaseController
     }
     public function index()
     {
-        
-        $data = $this->UserModel->findAll();
-        return view('nama_view/',$data);
+        $data = [
+            'title' => 'User',
+            'subtitle' => '',
+            'menu' => 'user',
+            'page' => 'v_user',
+            $data = $this->UserModel->findAll()
+        ];
+        return view('v_template', $data);
     }
+
+
+
 }

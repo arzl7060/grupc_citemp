@@ -100,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url ('Admin')?>" class="nav-link">
             <i class="nav-icon fas fa-solid fa-house-user"></i>
               <p>
                 Dashboard
@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url ('Order')?>" class="nav-link">
             <i class="nav-icon fas fa-solid fa-money-bill"></i>
               <p>
                 Transaction
@@ -118,7 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url ('Penjualan')?>" class="nav-link">
             <i class="nav-icon fas fa-solid fa-cash-register"></i>
               <p>
                 Penjualan
@@ -137,13 +137,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="<?= base_url ('Produk')?>" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= base_url ('Kategori')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori</p>
                 </a>
@@ -155,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= base_url ('User')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
                 </a>
@@ -163,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="Setting" class="nav-link">
             <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Setting
