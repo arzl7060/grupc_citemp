@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+$routes->get('/dashboard', 'Admin::index');
+
 
 $routes->get('/v_produk', 'Produk::index');
 $routes->get('/v_produk', 'Produk::create');
