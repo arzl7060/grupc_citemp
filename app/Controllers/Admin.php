@@ -12,8 +12,9 @@ class Admin extends BaseController
         $data = [
             'title' => 'Dashboard',
             'subtitle' => '',
-            'page' => 'dashboard',
             'menu' => 'dashboard',
+            'submenu' =>'',
+            'page' => 'dashboard',
 
         ];
         return view('v_template', $data);

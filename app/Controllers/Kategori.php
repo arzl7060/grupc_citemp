@@ -17,15 +17,30 @@ class Kategori extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Kategori',
-            'subtitle' => '',
-            'menu' => 'kategori',
+            'title' => 'Master Data',
+            'subtitle' => 'Kategori',
+            'menu' => 'masterdata',
+            'submenu' => 'kategori',
             'page' => 'v_kategori',
             $data = $this->KategoriModel->findAll()
         ];
         return view('v_template', $data);
     }
 
+    public function insertKategori(){
+        session()->setFlashdata('success', 'Kategori berhasil ditambahkan!');
+        return redirect()->to('/v_kategori');
+    }
 
+    public function updateKategori(){
+        session()->setFlashdata('success', 'Kategori berhasil diperbarui!');
+        return redirect()->to('/v_kategori');
+    }
+
+    public function deleteKategori(){
+        session()->setFlashdata('success', 'Kategori berhasil dihapus!');
+        return redirect()->to('/v_kategori');
+    }
 
 }
+

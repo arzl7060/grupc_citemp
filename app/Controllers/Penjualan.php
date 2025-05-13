@@ -23,7 +23,7 @@ class Penjualan extends BaseController
             'page' => 'v_penjualan',
             $data = $this->OrderModel->findAll()
         ];
-        return view('v_template', $data);
+        return view('v_penjualan', $data);
     }
 
 

@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>AQUARIUS</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?= base_url('asset_login') ?>/images/icons/logo.jfif" />
+    <link rel="icon" type="image/png" href="<?= base_url('asset_login') ?>/images/icons/logoc-food.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -38,10 +38,10 @@
             <div class="wrap-login100">
                 <form class="login100-form validate-form" action="#" method="post">
                     <div style="text-align: center;">
-                        <img src="<?= base_url('asset_login') ?>/images/icons/logo.jfif" width="70px" style="">
+                        <img src="<?= base_url('asset_login') ?>/images/icons/logoc-food.png" width="120px" style="">
                     </div> <br>
                     <span class="login100-form-title p-b-43">
-                        AQUARIUS <br> CAFE
+                        Cashier <br> Web
                     </span>
 
 
@@ -62,13 +62,13 @@
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                             <label class="label-checkbox100" for="ckb1">
-                                Ingat Saya
+                                Remember Me
                             </label>
                         </div>
 
                         <div>
                             <a href="#" class="txt1">
-                                Lupa Password?
+                                Forgot Password?
                             </a>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Masuk
+                            Login
                         </button>
                     </div>
 <br>
@@ -88,7 +88,7 @@
 
                     <div class="text-center p-t-46 p-b-20">
                         <span class="txt2">
-                            hubungi kami
+                            Contact Me
                         </span>
                     </div>
 
@@ -104,7 +104,7 @@
                 </form>
 
                 <div class="login100-more"
-                    style="background-image: url('<?= base_url('asset_login') ?>/images/foto.jpg');">
+                    style="background-image: url('<?= base_url('asset_login') ?>/images/seafood.jpg');">
                 </div>
             </div>
         </div>

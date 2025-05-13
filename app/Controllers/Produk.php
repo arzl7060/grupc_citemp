@@ -17,15 +17,29 @@ class Produk extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Produk',
-            'subtitle' => '',
-            'menu' => 'produk',
-            'page' => 'v_produk',
+            'title' => 'Master Data',
+            'subtitle' => 'Produk',
+            'menu' => 'masterdata',
+            'submenu' => 'produk',
+            'page' => 'v_produk',   
             $data = $this->ProdukModel->findAll()
         ];
         return view('v_template', $data);
     }
 
+    public function insertData(){
+        session()->setFlashdata('success', 'Produk berhasil ditambahkan!');
+        return redirect()->to('/v_produk');
+    }
 
+    public function updateData(){
+        session()->setFlashdata('success', 'Produk berhasil diperbarui!');
+        return redirect()->to('/v_produk');
+    }
+
+    public function deleteData(){
+        session()->setFlashdata('success', 'Produk berhasil dihapus!');
+        return redirect()->to('/v_produk');
+    }
 
 }
