@@ -20,9 +20,8 @@ $routes->get('/v_produk/delete/(:num)', 'Produk::delete/$1');
 $routes->get('/v_kategori', 'Kategori::index');
 $routes->get('/v_kategori', 'Kategori::create');
 $routes->post('/v_kategori', 'Kategori::store');
-$routes->get('/v_kategori/(:num)', 'Kategori::detail/$1');
-$routes->get('/v_kategori/edit/(:num)', 'Kategori::edit/$1');
-$routes->get('/v_kategori/delete/(:num)', 'Kategori::delete/$1');
+$routes->get('/v_kategori/updateKategori/(:num)', 'Kategori::updateKategori/$1');
+$routes->get('/v_kategori/deleteKategori/(:num)', 'Kategori::deleteKategori/$1');
 
 $routes->get('/v_order', 'Order::index');
 $routes->get('/v_order', 'Order::create');

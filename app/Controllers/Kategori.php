@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KategoriModel;
-use CodeIgniter\HTTP\ResponseInterface;
 class Kategori extends BaseController
 {
     protected $KategoriModel;
@@ -22,25 +21,36 @@ class Kategori extends BaseController
             'menu' => 'masterdata',
             'submenu' => 'kategori',
             'page' => 'v_kategori',
-            $data = $this->KategoriModel->findAll()
+            'kategori' => $this->KategoriModel->allData(),
         ];
         return view('v_template', $data);
     }
 
     public function insertKategori()
     {
+        $data = ['nama_kategori' => $this->request->getPost('nama_kategori')];
+        $this->KategoriModel->insertKategori($data); // post to db
         session()->setFlashdata('success', 'Kategori berhasil ditambahkan!');
         return redirect()->to('/v_kategori');
     }
 
-    public function updateKategori()
+    public function updateKategori($id)
     {
+        $data = [
+            'id' => $id,
+            'nama_kategori' => $this->request->getPost('nama_kategori')
+        ];
+        $this->KategoriModel->updateKategori($data); // post to db
         session()->setFlashdata('success', 'Kategori berhasil diperbarui!');
         return redirect()->to('/v_kategori');
     }
 
-    public function deleteKategori()
+    public function deleteKategori($id)
     {
+        $data = [
+            'id' => $id
+        ];
+        $this->KategoriModel->deleteKategori($data); // post to db
         session()->setFlashdata('success', 'Kategori berhasil dihapus!');
         return redirect()->to('/v_kategori');
     }

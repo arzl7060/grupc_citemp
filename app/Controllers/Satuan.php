@@ -3,20 +3,20 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UnitModel;
-class Unit extends BaseController
+use App\Models\SatuanModel;
+class Satuan extends BaseController
 {
-    protected $UnitModel;
+    protected $SatuanModel;
 
     public function __construct()
     {
         // Inisialisasi model di dalam konstruktor
-        $this->UnitModel = new UnitModel();
+        $this->SatuanModel = new SatuanModel();
     }
     public function index()
     {
 
-        // $data = $this->UnitModel->findAll();
+        // $data = $this->SatuanModel->findAll();
         // return view('nama_view/',$data);
     }
 }
