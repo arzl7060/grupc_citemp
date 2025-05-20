@@ -1,36 +1,37 @@
-<?php namespace App\Models;
+<?php
+namespace App\Models;
 
 use CodeIgniter\Model;
 
 class OrderModel extends Model
 {
-    protected $table      = 'orders';
+    protected $table = 'orders';
     protected $primaryKey = 'id';
 
-    protected $returnType     = 'array';
+    protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['user_id', 'tanggal_order', 'total', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields = ['no_faktor', 'id_kasir', 'tanggal', 'jam', 'total', 'status', 'kembalian'];
 
-    protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = false;
 
-    protected $validationRules    = [
-        'user_id'       => 'required|numeric',
-        'tanggal_order' => 'required|valid_date',
-        'total'         => 'required|numeric',
-        'status'        => 'required|in_list[pending,selesai]'
+    protected $validationRules = [
+        'no_faktor' => 'required',
+        'id_kasir' => 'required|numeric',
+        'tanggal' => 'required|valid_date',
+        'jam' => 'required|valid_time',
+        'total' => 'required|numeric',
+        'status' => 'required|in_list[pending,selesai]',
+        'kembalian' => 'required|numeric'
     ];
     protected $validationMessages = [];
-    protected $skipValidation     = false;
+    protected $skipValidation = false;
 
     // Join dengan tabel users
     public function getOrdersWithUser()
     {
         return $this->select('orders.*, users.username')
-                    ->join('users', 'users.id = orders.user_id')
-                    ->findAll();
+            ->join('users', 'users.id = orders.id_kasir')
+            ->findAll();
     }
 }

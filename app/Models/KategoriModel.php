@@ -1,25 +1,23 @@
-<?php namespace App\Models;
+<?php
+namespace App\Models;
 
 use CodeIgniter\Model;
 
 class KategoriModel extends Model
 {
-    protected $table      = 'kategori';
+    protected $table = 'kategori';
     protected $primaryKey = 'id';
 
-    protected $returnType     = 'array';
+    protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama_kategori', 'created_at', 'updated_at'];
+    protected $allowedFields = ['nama_kategori'];
 
-    protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = false;
 
-    protected $validationRules    = [
+    protected $validationRules = [
         'nama_kategori' => 'required|min_length[3]|max_length[100]'
     ];
     protected $validationMessages = [];
-    protected $skipValidation     = false;
+    protected $skipValidation = false;
 }
