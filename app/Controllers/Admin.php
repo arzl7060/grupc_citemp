@@ -13,11 +13,11 @@ class Admin extends BaseController
             'title' => 'Dashboard',
             'subtitle' => '',
             'menu' => 'dashboard',
-            'submenu' =>'',
+            'submenu' => '',
             'page' => 'dashboard',
 
         ];
         return view('v_template', $data);
-    
+
     }
 }

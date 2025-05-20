@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\OrderModel;
-use CodeIgniter\HTTP\ResponseInterface;
+
 class Order extends BaseController
 {
     protected $OrderModel;

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
-use CodeIgniter\HTTP\ResponseInterface;
+
 class User extends BaseController
 {
     protected $UserModel;
@@ -27,17 +27,20 @@ class User extends BaseController
         return view('v_template', $data);
     }
 
-    public function insertUser(){
+    public function insertUser()
+    {
         session()->setFlashdata('success', 'User berhasil ditambahkan!');
         return redirect()->to('/v_user');
     }
 
-    public function updateUser(){
+    public function updateUser()
+    {
         session()->setFlashdata('success', 'User berhasil diperbarui!');
         return redirect()->to('/v_user');
     }
 
-    public function deleteUser(){
+    public function deleteUser()
+    {
         session()->setFlashdata('success', 'User berhasil dihapus!');
         return redirect()->to('/v_user');
     }

@@ -27,17 +27,20 @@ class Kategori extends BaseController
         return view('v_template', $data);
     }
 
-    public function insertKategori(){
+    public function insertKategori()
+    {
         session()->setFlashdata('success', 'Kategori berhasil ditambahkan!');
         return redirect()->to('/v_kategori');
     }
 
-    public function updateKategori(){
+    public function updateKategori()
+    {
         session()->setFlashdata('success', 'Kategori berhasil diperbarui!');
         return redirect()->to('/v_kategori');
     }
 
-    public function deleteKategori(){
+    public function deleteKategori()
+    {
         session()->setFlashdata('success', 'Kategori berhasil dihapus!');
         return redirect()->to('/v_kategori');
     }
