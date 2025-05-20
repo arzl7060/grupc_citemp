@@ -22,13 +22,15 @@ class User extends BaseController
             'menu' => 'masterdata',
             'submenu' => 'user',
             'page' => 'v_user',
-            $data = $this->UserModel->findAll()
+            'user' => $this->UserModel->allData(),
         ];
         return view('v_template', $data);
     }
 
     public function insertUser()
     {
+        $data = ['username' => $this->request->getPost('username')];
+        $this->UserModel->insertKategori($data); // post to db
         session()->setFlashdata('success', 'User berhasil ditambahkan!');
         return redirect()->to('/v_user');
     }

@@ -41,29 +41,32 @@
         <thead>
           <tr class="text-center">
             <th width="50px">No</th>
-            <th>ID User</th>
             <th>Nama User</th>
-            <th>Role</th>
+            <th>Email</th>
             <th>Password</th>
+            <th>Role</th>
             <th>Create at</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>0001</td>
-            <td>Kasir 1</td>
-            <td>Common</td>
-            <td>asdaffgemndsjnkasd</td>
-            <td>15-10-2020</td>
-            <td>
-              <button class="btn btn-warning" data-toggle="modal" data-target="#update-data"><i
-                  class="fas fa-pencil-alt"></i></button>
-              <button class="btn btn-danger" data-toggle="modal" data-target="#delete-data"><i
-                  class="fas fa-trash"></i></button>
-            </td>
-          </tr>
+        <?php $no = 1;
+        foreach ($user as $key => $value) { ?>
+          <tbody>
+            <tr>
+              <td><?= $no++ ?></td>
+              <td><?= $value['username'] ?></td>
+              <td><?= $value['email'] ?></td>
+              <td><?= $value['password'] ?></td>
+              <td><?= $value['role'] ?></td>
+              <td><?= $value['created_at'] ?></td>
+              <td>
+                <button class="btn btn-warning" data-toggle="modal" data-target="#update-data<?= $value['id'] ?>"><i
+                    class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#delete-data<?= $value['id'] ?>"><i
+                    class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
     </div>
