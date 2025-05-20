@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use CodeIgniter\HTTP\ResponseInterface;
 class Setting extends BaseController
 {
     protected $UserModel;
@@ -19,6 +20,7 @@ class Setting extends BaseController
             'title' => 'Setting',
             'subtitle' => '',
             'menu' => 'setting',
+            'submenu' => '',
             'page' => 'v_setting',
             $data = $this->UserModel->findAll()
         ];

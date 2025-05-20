@@ -20,6 +20,7 @@ class Order extends BaseController
             'title' => 'Transaction',
             'subtitle' => '',
             'menu' => 'transaksi',
+            'submenu' => '',
             'page' => 'v_order',
             $data = $this->OrderModel->findAll()
         ];
