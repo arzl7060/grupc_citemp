@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <a class="nav-link" href="<?= base_url('Home/logout') ?>" role="button">
             <i class="fas fa-sign-out-alt"></i>Logout
           </a>
         </li>
@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="<?= base_url('AdminLTE') ?>/dist/img/User.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Admin</a>
+            <a href="#" class="d-block"><?= session()->get('username') ?></a>
           </div>
         </div>
 

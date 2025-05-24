@@ -143,7 +143,7 @@
 
           <div class="form-group">
             <label for="">Password</label>
-            <input name="password" class="form-control" value="<?= $value['password'] ?>" placeholder="Password" readonly>
+            <input name="password" class="form-control" value="<?= $value['password'] ?>" placeholder="Password" required>
           </div>
 
           <div class="form-group">

@@ -31,7 +31,7 @@ class User extends BaseController
     {
         $data = [
             'username' => $this->request->getPost('username'),
-            'password' => sha1($this->request->getPost('password')),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'role' => $this->request->getPost('role'),
         ];
         $this->UserModel->insertUser($data); // post to db
@@ -41,12 +41,16 @@ class User extends BaseController
 
     public function updateUser($id)
     {
+        // 1. Ambil password yang di-submit dari form
+        $submittedPassword = $this->request->getPost('password');
         $data = [
             'id' => $id,
             'username' => $this->request->getPost('username'),
-            'password' => sha1($this->request->getPost('password')),
             'role' => $this->request->getPost('role'),
         ];
+        if (!empty($submittedPassword)) {
+            $data['password'] = password_hash($submittedPassword, PASSWORD_DEFAULT);
+        }
         $this->UserModel->updateUser($data);
         session()->setFlashdata('success', 'User berhasil diperbarui!');
         return redirect()->to('User');

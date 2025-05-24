@@ -24,6 +24,18 @@ class UserModel extends Model
         $this->db->table('users')->where('id', $data['id'])->delete($data);
     }
 
+    public function loginUser($username, $password)
+    {
+        // Ambil data user berdasarkan username
+        $user = $this->db->table('users')->where('username', $username)->get()->getRowArray();
+
+        // Jika user ditemukan, verifikasi password
+        if ($user && password_verify($password, $user['password'])) {
+            return $user; // Kembalikan data user jika login berhasil
+        }
+
+        return false; // Kembalikan false jika login gagal
+    }
 
     // Hash password sebelum menyimpan
     protected $beforeInsert = ['hashPassword'];
