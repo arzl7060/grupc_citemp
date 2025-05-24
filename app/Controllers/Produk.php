@@ -4,14 +4,20 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProdukModel;
+use App\Models\KategoriModel;
+use App\Models\SatuanModel;
 class Produk extends BaseController
 {
     protected $ProdukModel;
+    protected $KategoriModel;
+    protected $SatuanModel;
 
     public function __construct()
     {
         // Inisialisasi model di dalam konstruktor
         $this->ProdukModel = new ProdukModel();
+        $this->KategoriModel = new kategoriModel();
+        $this->SatuanModel = new SatuanModel();
     }
     public function index()
     {
@@ -22,8 +28,8 @@ class Produk extends BaseController
             'submenu' => 'produk',
             'page' => 'v_produk',
             'produk' => $this->ProdukModel->allData(),
-            'kategori' => $this->ProdukModel->allData(),
-            'satuan' => $this->ProdukModel->allData(),
+            'kategori' => $this->KategoriModel->allData(),
+            'satuan' => $this->SatuanModel->allData(),
         ];
         return view('v_template', $data);
     }

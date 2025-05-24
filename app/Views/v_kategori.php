@@ -51,10 +51,10 @@
               <td><?= $no++ ?></td>
               <td><?= $value['nama_kategori'] ?></td>
               <td style="text-align: center">
-                <button class="btn btn-warning" data-toggle="modal" data-target="#update-data<?= $value['id'] ?>"><i
-                    class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#delete-data<?= $value['id'] ?>"><i
-                    class="fas fa-trash"></i></button>
+                <button class="btn btn-warning" data-toggle="modal"
+                  data-target="#update-data<?= $value['id_kategori'] ?>"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger" data-toggle="modal"
+                  data-target="#delete-data<?= $value['id_kategori'] ?>"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
           <?php } ?>
@@ -106,7 +106,7 @@
 
 <!-- Modal Update Data -->
 <?php foreach ($kategori as $key => $value) { ?>
-  <div class="modal fade" id="update-data<?= $value['id'] ?>">
+  <div class="modal fade" id="update-data<?= $value['id_kategori'] ?>">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -115,7 +115,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <?php echo form_open('Kategori/updateKategori/' . $value['id']) ?>
+        <?php echo form_open('Kategori/updateKategori/' . $value['id_kategori']) ?>
         <div class="modal-body">
           <div class="form-group">
             <label for="">Nama Kategori</label>
@@ -137,7 +137,7 @@
 <!-- /.modal -->
 <?php foreach ($kategori as $key => $value) { ?>
   <!-- Modal Hapus Data -->
-  <div class="modal fade" id="delete-data<?= $value['id'] ?>">
+  <div class="modal fade" id="delete-data<?= $value['id_kategori'] ?>">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-warning">
@@ -152,7 +152,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          <a href="<?= base_url('Kategori/deleteKategori/' . $value['id']) ?>" class="btn btn-danger">Hapus</a>
+          <a href="<?= base_url('Kategori/deleteKategori/' . $value['id_kategori']) ?>" class="btn btn-danger">Hapus</a>
         </div>
       </div>
       <!-- /.modal-content -->

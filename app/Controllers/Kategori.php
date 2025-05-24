@@ -34,10 +34,10 @@ class Kategori extends BaseController
         return redirect()->to('/v_kategori');
     }
 
-    public function updateKategori($id)
+    public function updateKategori($id_kategori)
     {
         $data = [
-            'id' => $id,
+            'id_kategori' => $id_kategori,
             'nama_kategori' => $this->request->getPost('nama_kategori')
         ];
         $this->KategoriModel->updateKategori($data); // post to db
@@ -45,10 +45,10 @@ class Kategori extends BaseController
         return redirect()->to('/v_kategori');
     }
 
-    public function deleteKategori($id)
+    public function deleteKategori($id_kategori)
     {
         $data = [
-            'id' => $id
+            'id_kategori' => $id_kategori,
         ];
         $this->KategoriModel->deleteKategori($data); // post to db
         session()->setFlashdata('success', 'Kategori berhasil dihapus!');

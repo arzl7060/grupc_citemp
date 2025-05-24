@@ -28,10 +28,10 @@ class KategoriModel extends Model
 
     public function updateKategori($data)
     {
-        $this->db->table('kategori')->where('id', $data['id'])->update($data);
+        $this->db->table('kategori')->where('id_kategori', $data['id_kategori'])->update($data);
     }
     public function deleteKategori($data)
     {
-        $this->db->table('kategori')->where('id', $data['id'])->delete($data);
+        $this->db->table('kategori')->where('id_kategori', $data['id_kategori'])->delete($data);
     }
 }

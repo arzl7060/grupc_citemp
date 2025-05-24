@@ -231,7 +231,7 @@
 
           <div class="form-group">
             <label for="">Stok Produk</label>
-            <input name="stock_produk" class="form-control" value="<?= $value['stok'] ?>" placeholder="Stok" required>
+            <input name="stok" class="form-control" value="<?= $value['stok'] ?>" placeholder="Stok" required>
           </div>
 
           <div class="form-group">
