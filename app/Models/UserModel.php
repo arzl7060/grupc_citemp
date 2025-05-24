@@ -10,7 +10,19 @@ class UserModel extends Model
         return $this->db->table('users')->get()->getResultArray();
     }
 
+    public function insertUser($data)
+    {
+        $this->db->table('users')->insert($data);
+    }
 
+    public function updateUser($data)
+    {
+        $this->db->table('users')->where('id', $data['id'])->update($data);
+    }
+    public function deleteUser($data)
+    {
+        $this->db->table('users')->where('id', $data['id'])->delete($data);
+    }
 
 
     // Hash password sebelum menyimpan
