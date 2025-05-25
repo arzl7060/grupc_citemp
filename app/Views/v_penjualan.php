@@ -74,7 +74,7 @@
           <span id="tax">Rp. 0.00</span>
         </div>
         <div class="total-row" style="font-weight: bold; font-size: 1.1rem;">
-          <span>Total Amount</span>
+          <span>Total</span>
           <span id="total">Rp. 0.00</span>
         </div>
       </div>
@@ -92,15 +92,15 @@
       <div class="menu-category">
         <div class="category-title">Seafood</div>
         <div class="menu-items">
-          <div class="menu-item" data-name="Udang Asam Manis" data-price="12000.00">
+          <div class="menu-item" data-name="Udang Asam Manis" data-price="25000.00">
             <div>Udang Asam Manis</div>
             <div class="item-price">Rp.25,000</div>
           </div>
-          <div class="menu-item" data-name="Udang Bakar Madu" data-price="12000.00">
+          <div class="menu-item" data-name="Udang Bakar Madu" data-price="25000.00">
             <div>Udang Bakar Madu</div>
             <div class="item-price">Rp.25,000</div>
           </div>
-          <div class="menu-item" data-name="Kerang Bumbu Padang" data-price="12000.00">
+          <div class="menu-item" data-name="Kerang Bumbu Padang" data-price="25000.00">
             <div>Kerang Bumbu Padang</div>
             <div class="item-price">Rp.25,000</div>
           </div>
@@ -110,15 +110,15 @@
       <div class="menu-category">
         <div class="category-title">Seafood</div>
         <div class="menu-items">
-          <div class="menu-item" data-name="Udang Asam Manis" data-price="12000.00">
+          <div class="menu-item" data-name="Udang Asam Manis" data-price="25000.00">
             <div>Udang Asam Manis</div>
             <div class="item-price">Rp.25,000</div>
           </div>
-          <div class="menu-item" data-name="Udang Bakar Madu" data-price="12000.00">
+          <div class="menu-item" data-name="Udang Bakar Madu" data-price="25000.00">
             <div>Udang Bakar Madu</div>
             <div class="item-price">Rp.25,000</div>
           </div>
-          <div class="menu-item" data-name="Kerang Bumbu Padang" data-price="12000.00">
+          <div class="menu-item" data-name="Kerang Bumbu Padang" data-price="25000.00">
             <div>Kerang Bumbu Padang</div>
             <div class="item-price">Rp.25,000</div>
           </div>
@@ -128,7 +128,7 @@
       <div class="menu-category">
         <div class="category-title">Minuman</div>
         <div class="menu-items">
-          <div class="menu-item" data-name="Teh Manis" data-price="10000.00">
+          <div class="menu-item" data-name="Teh Manis" data-price="8000.00">
             <div>Es Teh Manis</div>
             <div class="item-price">8000</div>
           </div>

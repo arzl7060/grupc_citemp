@@ -16,7 +16,7 @@ class Satuan extends BaseController
     public function index()
     {
 
-        // $data = $this->SatuanModel->findAll();
-        // return view('nama_view/',$data);
+        // 'order' = $this->OrderModel->allData();
+        return view('v_penjualan2');
     }
 }

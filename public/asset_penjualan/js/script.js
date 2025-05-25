@@ -1,11 +1,11 @@
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() { // DOM memuatkan event listener untuk DOMContentLoaded
             // Cart state
-            const cart = {
-                items: [],
-                subtotal: 0,
-                tax: 0,
-                total: 0,
-                taxRate: 0.11
+            const cart = { // Inisialisasi cart
+                items: [], // Array untuk menyimpan item cart
+                subtotal: 0, // Total harga sebelum pajak
+                tax: 0, // Total pajak
+                total: 0, // Total harga setelah pajak
+                taxRate: 0.11 // Tarif pajak 11%
             };
 
             // DOM elements
@@ -71,7 +71,7 @@
                         </div>
                     `).join('');
                     
-                    
+                    // even listener untuk tombol minus
                     document.querySelectorAll('.minus-btn').forEach(btn => {
                         btn.addEventListener('click', function(e) {
                             e.stopPropagation();
@@ -79,7 +79,7 @@
                             updateQuantity(itemName, -1);
                         });
                     });
-                    
+                    // even listener untuk tombol plus
                     document.querySelectorAll('.plus-btn').forEach(btn => {
                         btn.addEventListener('click', function(e) {
                             e.stopPropagation();
@@ -133,7 +133,7 @@
                     Tax: Rp. ${cart.tax.toFixed(2)}
                     Total: Rp. ${cart.total.toFixed(2)}
                     ----------------------------
-                    Thank you for your order!
+                    Terima Kasih atas pembeliannya!
                 `;
                 
                  // Buat Demo 

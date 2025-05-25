@@ -27,9 +27,9 @@ $routes->group('Produk', ['filter' => 'auth'], function ($routes) {
 $routes->group('Kategori', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'Kategori::index'); // Ganti dengan controller dan method penjualan Anda
 });
-$routes->group('Satuan', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Satuan::index'); // Ganti dengan controller dan method penjualan Anda
-});
+// $routes->group('Satuan', ['filter' => 'auth'], function ($routes) {
+//     $routes->get('/', 'Satuan::index'); // Ganti dengan controller dan method penjualan Anda
+// });
 
 $routes->get('/dashboard', 'Admin::index');
 
