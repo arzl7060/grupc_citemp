@@ -17,7 +17,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/dist/css/adminlte.min.css?v=3.2.0">
-
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- jQuery -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+  <!-- SweetAlert2 -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -44,94 +53,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Right navbar links -->
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
           <!-- Messages Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="fas fa-comments"></i>
-              <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Brad Diesel
-                      <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">Call me whenever you can...</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      John Pierce
-                      <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">I got your message bro</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Nora Silvester
-                      <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">The subject goes here</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-          </li>
-          <!-- Notifications Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-header">15 Notifications</span>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-              <i class="fas fa-th-large"></i>
-            </a>
+            <?php if (session()->get('role') == 'admin') { ?>
+              <a class="nav-link" href="<?= base_url('Admin') ?>">
+                <i class="fas fa-th-large"></i> Dashboard
+              </a>
+            <?php } else { ?>
+              <a class="nav-link btn-danger" href="<?= base_url('Home/Logout') ?>">
+                <i class="fas fa-sign-in-alt text-white"> Logout</i>
+              </a>
+            <?php } ?>
           </li>
         </ul>
       </div>
@@ -148,14 +79,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="row">
 
           <!-- /.col-md-6 -->
-          <div class="col-lg-7">
+          <div class="col-lg-8">
             <div class="card card-primary card-outline">
               <div class="card-body">
                 <div class="row">
                   <div class="col-3">
                     <div class="form-group">
-                      <label>No. Faktur</label>
-                      <label class="form-control form-control-lg">14243373536</label>
+                      <label>No. Invoice</label>
+                      <label class="form-control form-control-lg"><?= $no_faktor ?></label>
                     </div>
                   </div>
                   <div class="col-3">
@@ -173,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-3">
                     <div class="form-group">
                       <label>Kasir</label>
-                      <label class="form-control form-control-lg text-primary">Nama Kasir</label>
+                      <label class="form-control form-control-lg text-primary"><?= session()->get('username') ?></label>
                     </div>
                   </div>
                 </div>
@@ -181,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
 
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h5 class="card-title m-0"></h5>
@@ -197,9 +128,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">
                 <div class="row">
                   <div class="col-12">
+                    <?php echo form_open() ?>
                     <div class="row">
                       <div class="col-2 input-group">
-                        <input name="kode_produk" class="form-control" placeholder="Barcode/Kode Produk">
+                        <input name="kode_produk" id="kode_produk" class="form-control"
+                          placeholder="Barcode/Kode Produk" autocomplete="off">
                         <span class="input-group-append">
                           <button class="btn btn-primary btn-flat">
                             <i class="fas fa-search"></i>
@@ -210,27 +143,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </span>
                       </div>
                       <div class="col-2">
-                        <input name="nama_produk" class="form-control" placeholder="Nama Produk">
+                        <input name="nama_produk" class="form-control text-primary" placeholder="Nama Produk" readonly>
                       </div>
                       <div class="col-1">
-                        <input name="kategori" class="form-control" placeholder="Kategori">
+                        <input name="kategori" class="form-control text-primary" placeholder="Kategori" readonly>
                       </div>
                       <div class="col-1">
-                        <input name="satuan" class="form-control" placeholder="Satuan">
+                        <input name="satuan" class="form-control text-primary" placeholder="Satuan" readonly>
                       </div>
                       <div class="col-2">
-                        <input name="harga_jual" class="form-control" placeholder="Harga">
+                        <input name="harga_jual" class="form-control text-primary" placeholder="Harga" readonly>
                       </div>
                       <div class="col-1">
-                        <input type="number" min="1" value="1" name="qty" class="form-control text-center"
+                        <input type="number" min="1" value="1" name="qty" id="qty" class="form-control text-center"
                           placeholder="QTY">
                       </div>
                       <div class="col-3">
-                        <button class="btn btn-primary"><i class="fas fa-cart-plus"></i></button>
-                        <button class="btn btn-warning"><i class="fas fa-sync"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-cart-plus"></i></button>
+                        <button type="reset" class="btn btn-warning"><i class="fas fa-sync"></i></button>
                         <button class="btn btn-success"><i class="fas fa-cash-register"> Bayar</i></button>
                       </div>
                     </div>
+                    <?php echo form_close() ?>
                   </div>
                 </div>
                 <hr>
@@ -306,12 +240,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- REQUIRED SCRIPTS -->
 
-  <!-- jQuery -->
-  <script src="<?= base_url('AdminLTE') ?>/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="<?= base_url('AdminLTE') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+  <script>
+    $(document).ready(function () {
+      $('#kode_produk').focus(),
+        $('#kode_produk').keydown(function (e) {
+          let kode_produk = $('#kode_produk').val();
+          if (e.keyCode == 13) {
+            e.preventDefault();
+            if (kode_produk == '') {
+              Swal.fire('Kode Produk belum diisi!', '', 'warning');
+            } else {
+              cekProduk();
+            }
+          }
+        })
+    });
+    function cekProduk() {
+      $.ajax({
+        url: '<?= base_url('Penjualan/cekProduk') ?>',
+        type: 'POST',
+        data: {
+          kode_produk: $('#kode_produk').val(),
+        },
+        dataType: 'json',
+        success: function (response) {
+          if (response.nama_produk) {
+            $('input[name="nama_produk"]').val(response.nama_produk);
+            $('input[name="harga_jual"]').val(response.harga_jual);
+            $('input[name="satuan"]').val(response.nama_satuan);
+            $('input[name="kategori"]').val(response.nama_kategori);
+            $('#qty').focus();
+          } else {
+            Swal.fire('Produk tidak ditemukan!', '', 'error');
+            $('input[name="nama_produk"]').val('');
+            $('input[name="harga_jual"]').val('');
+            $('input[name="satuan"]').val('');
+            $('input[name="kategori"]').val('');
+          }
+
+        }
+      });
+    }
+  </script>
 
 </body>
 
