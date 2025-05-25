@@ -18,10 +18,10 @@ class SatuanModel extends Model
 
     public function updateSatuan($data)
     {
-        $this->db->table('satuan')->where('id', $data['id'])->update($data);
+        $this->db->table('satuan')->where('id_satuan', $data['id_satuan'])->update($data);
     }
     public function deleteSatuan($data)
     {
-        $this->db->table('satuan')->where('id', $data['id'])->delete($data);
+        $this->db->table('satuan')->where('id_satuan', $data['id_satuan'])->delete($data);
     }
 }
