@@ -19,7 +19,7 @@ class Penjualan extends BaseController
             'title' => 'Penjualan',
             'no_faktor' => $this->PenjualanModel->NoFaktor(),
         ];
-        return view('v_penjualan2', $data);
+        return view('v_penjualan', $data);
     }
 
     public function cekProduk()
