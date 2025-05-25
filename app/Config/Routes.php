@@ -6,9 +6,32 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->group('Admin', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Admin::index'); // Ganti dengan controller dan method admin Anda
+});
+$routes->group('Penjualan', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Penjualan::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('Order', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Order::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('Setting', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Setting::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('User', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'User::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('Produk', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Produk::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('Kategori', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Kategori::index'); // Ganti dengan controller dan method penjualan Anda
+});
+$routes->group('Satuan', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'Satuan::index'); // Ganti dengan controller dan method penjualan Anda
+});
 
 $routes->get('/dashboard', 'Admin::index');
-
 
 $routes->get('/v_produk', 'Produk::index');
 $routes->get('/v_produk', 'Produk::create');
