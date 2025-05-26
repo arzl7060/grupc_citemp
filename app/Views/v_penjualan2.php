@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-3">
                     <div class="form-group">
                       <label>Jam</label>
-                      <label class="form-control form-control-lg"><?= date('13:00:00') ?> </label>
+                      <label class="form-control form-control-lg" id="jam"></label>
                     </div>
                   </div>
                   <div class="col-3">
@@ -283,6 +283,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
   </script>
 
+  <script>
+    window.onload = function () {
+      startTime();
+    }
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      document.getElementById('jam').innerHTML = h + ':' + m + ':' + s;
+      var t = setTimeout(function () {
+        startTime();
+      }, 1000);
+    }
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i
+      }
+      return i;
+    }
+  </script>
 </body>
 
 </html>
