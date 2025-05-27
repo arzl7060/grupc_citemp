@@ -6,52 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->group('Admin', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Admin::index'); // Ganti dengan controller dan method admin Anda
-});
-$routes->group('Penjualan', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Penjualan::index'); // Ganti dengan controller dan method penjualan Anda
-});
-$routes->group('Order', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Order::index'); // Ganti dengan controller dan method penjualan Anda
-});
-$routes->group('Setting', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Setting::index'); // Ganti dengan controller dan method penjualan Anda
-});
-$routes->group('User', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'User::index'); // Ganti dengan controller dan method penjualan Anda
-});
-$routes->group('Produk', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Produk::index'); // Ganti dengan controller dan method penjualan Anda
-});
-$routes->group('Kategori', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Kategori::index'); // Ganti dengan controller dan method penjualan Anda
-});
+
+
 // $routes->group('Satuan', ['filter' => 'auth'], function ($routes) {
 //     $routes->get('/', 'Satuan::index'); // Ganti dengan controller dan method penjualan Anda
 // });
-
-$routes->get('/dashboard', 'Admin::index');
-
-$routes->get('/v_produk', 'Produk::index');
-$routes->get('/v_produk', 'Produk::create');
-$routes->post('/v_produk', 'Produk::store');
-$routes->get('/v_produk/(:num)', 'Produk::detail/$1');
-$routes->get('/v_produk/edit/(:num)', 'Produk::edit/$1');
-$routes->get('/v_produk/delete/(:num)', 'Produk::delete/$1');
-
-$routes->get('/v_kategori', 'Kategori::index');
-$routes->get('/v_kategori', 'Kategori::create');
-$routes->post('/v_kategori', 'Kategori::store');
-$routes->get('/v_kategori/updateKategori/(:num)', 'Kategori::updateKategori/$1');
-$routes->get('/v_kategori/deleteKategori/(:num)', 'Kategori::deleteKategori/$1');
-
-$routes->get('/v_order', 'Order::index');
-$routes->get('/v_order', 'Order::create');
-$routes->post('/v_order', 'Order::store');
-$routes->get('/v_order/(:num)', 'Order::detail/$1');
-$routes->get('/v_order/edit/(:num)', 'Order::edit/$1');
-$routes->get('/v_order/delete/(:num)', 'Order::delete/$1');
-
-$routes->get('/v_penjualan', 'Penjualan::index');
-$routes->get('/v_setting', 'Penjualan::index');

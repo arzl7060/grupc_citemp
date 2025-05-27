@@ -34,7 +34,8 @@ class Filters extends BaseFilters
         'forcehttps' => ForceHTTPS::class,
         'pagecache' => PageCache::class,
         'performance' => PerformanceMetrics::class,
-        'auth' => \App\Filters\AuthFilter::class, // Custom filter for authentication
+        'auth' => \App\Filters\AuthFilter::class,          // Alias untuk filter autentikasi
+        'adminFilter' => \App\Filters\AdminFilter::class,
     ];
 
     /**
@@ -75,6 +76,9 @@ class Filters extends BaseFilters
             // 'invalidchars',
         ],
         'after' => [
+            'auth',
+            'adminFilter',
+            // 'toolbar', //
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -104,5 +108,15 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        // Contoh filter untuk semua halaman yang membutuhkan login
+        'auth' => [
+            'before' => ['Admin', 'Admin/*', 'Order', 'Order/*', 'Penjualan', 'Penjualan/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*']
+        ], // Semua halaman butuh login
+
+        'adminFilter' => [
+            'before' => ['Admin', 'Admin/*', 'Order', 'Order/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*']
+        ], // Admin bisa akses semua
+
+    ];
 }

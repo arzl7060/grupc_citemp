@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Controllers\BaseController;
 use App\Models\UserModel;
-use CodeIgniter\Controller; // Pastikan ini di-import
 use Config\Services;        // Tambahkan ini untuk akses Services
 
 class Home extends BaseController

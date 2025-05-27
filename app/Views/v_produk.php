@@ -8,6 +8,9 @@
         "><i class="fas fa-plus">
             Add Data</i>
         </button>
+        <button type="button" class="btn btn-tool"><i class="fas fa-print">
+            Print</i>
+        </button>
       </div>
       <!-- /.card-tools -->
     </div>
