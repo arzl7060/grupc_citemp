@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
-use CodeIgniter\HTTP\ResponseInterface;
+
 class User extends BaseController
 {
     protected $UserModel;
@@ -22,24 +22,48 @@ class User extends BaseController
             'menu' => 'masterdata',
             'submenu' => 'user',
             'page' => 'v_user',
-            $data = $this->UserModel->findAll()
+            'user' => $this->UserModel->allData(),
         ];
         return view('v_template', $data);
     }
 
-    public function insertUser(){
+    public function insertUser()
+    {
+        $data = [
+            'username' => $this->request->getPost('username'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role' => $this->request->getPost('role'),
+        ];
+        $this->UserModel->insertUser($data); // post to db
         session()->setFlashdata('success', 'User berhasil ditambahkan!');
-        return redirect()->to('/v_user');
+        return redirect()->to('User');
     }
 
-    public function updateUser(){
+    public function updateUser($id)
+    {
+        // 1. Ambil password yang di-submit dari form
+        $submittedPassword = $this->request->getPost('password');
+        $data = [
+            'id' => $id,
+            'username' => $this->request->getPost('username'),
+            'role' => $this->request->getPost('role'),
+        ];
+        if (!empty($submittedPassword)) {
+            $data['password'] = password_hash($submittedPassword, PASSWORD_DEFAULT);
+        }
+        $this->UserModel->updateUser($data);
         session()->setFlashdata('success', 'User berhasil diperbarui!');
-        return redirect()->to('/v_user');
+        return redirect()->to('User');
     }
 
-    public function deleteUser(){
+    public function deleteUser($id)
+    {
+        $data = [
+            'id' => $id,
+        ];
+        $this->UserModel->deleteUser($data);
         session()->setFlashdata('success', 'User berhasil dihapus!');
-        return redirect()->to('/v_user');
+        return redirect()->to('User');
     }
 
 }

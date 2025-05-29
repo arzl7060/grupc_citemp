@@ -20,6 +20,7 @@ class Setting extends BaseController
             'title' => 'Setting',
             'subtitle' => '',
             'menu' => 'setting',
+            'submenu' => '',
             'page' => 'v_setting',
             $data = $this->UserModel->findAll()
         ];

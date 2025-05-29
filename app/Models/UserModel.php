@@ -1,30 +1,41 @@
-<?php namespace App\Models;
+<?php
+namespace App\Models;
 
 use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table      = 'users';
-    protected $primaryKey = 'id';
+    public function allData()
+    {
+        return $this->db->table('users')->get()->getResultArray();
+    }
 
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    public function insertUser($data)
+    {
+        $this->db->table('users')->insert($data);
+    }
 
-    protected $allowedFields = ['username', 'email', 'password', 'role', 'created_at', 'updated_at'];
+    public function updateUser($data)
+    {
+        $this->db->table('users')->where('id', $data['id'])->update($data);
+    }
+    public function deleteUser($data)
+    {
+        $this->db->table('users')->where('id', $data['id'])->delete($data);
+    }
 
-    protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    public function loginUser($username, $password)
+    {
+        // Ambil data user berdasarkan username
+        $user = $this->db->table('users')->where('username', $username)->get()->getRowArray();
 
-    protected $validationRules    = [
-        'username' => 'required|min_length[3]|max_length[100]',
-        'email'    => 'required|valid_email|is_unique[users.email]',
-        'password' => 'required|min_length[6]',
-        'role'     => 'required|in_list[admin,kasir]'
-    ];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+        // Jika user ditemukan, verifikasi password
+        if ($user && password_verify($password, $user['password'])) {
+            return $user; // Kembalikan data user jika login berhasil
+        }
+
+        return false; // Kembalikan false jika login gagal
+    }
 
     // Hash password sebelum menyimpan
     protected $beforeInsert = ['hashPassword'];
@@ -32,7 +43,8 @@ class UserModel extends Model
 
     protected function hashPassword(array $data)
     {
-        if (! isset($data['data']['password'])) return $data;
+        if (!isset($data['data']['password']))
+            return $data;
 
         $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
         return $data;

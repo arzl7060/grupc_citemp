@@ -1,36 +1,33 @@
-<?php namespace App\Models;
+<?php
+namespace App\Models;
 
 use CodeIgniter\Model;
 
 class ProdukModel extends Model
 {
-    protected $table      = 'produk';
-    protected $primaryKey = 'id';
-
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
-
-    protected $allowedFields = ['nama_produk', 'kategori_id', 'harga', 'stok', 'created_at', 'updated_at'];
-
-    protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
-
-    protected $validationRules    = [
-        'nama_produk' => 'required|min_length[3]|max_length[100]',
-        'kategori_id' => 'required|numeric',
-        'harga'       => 'required|numeric',
-        'stok'        => 'required|numeric'
-    ];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
-
-    // Join dengan tabel kategori
-    public function getProdukWithKategori()
+    public function allData()
     {
-        return $this->select('produk.*, kategori.nama_kategori')
-                    ->join('kategori', 'kategori.id = produk.kategori_id')
-                    ->findAll();
+        return $this->db->table('produk')
+            ->join('kategori', 'kategori.id_kategori=produk.id_kategori')
+            ->join('satuan', 'satuan.id_satuan=produk.id_satuan')
+            ->orderBy('produk.id', 'DESC')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function insertProduk($data)
+    {
+        $this->db->table('produk')->insert($data);
+    }
+
+    public function updateProduk($data)
+    {
+        $this->db->table('produk')->where('id', $data['id'])->update($data);
+    }
+    public function deleteProduk($data)
+    {
+        $this->db->table('produk')->where('id', $data['id'])->delete($data);
     }
 }
+
+

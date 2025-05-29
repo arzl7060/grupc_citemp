@@ -18,13 +18,16 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url('asset_login') ?>/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url('asset_login') ?>/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url('asset_login') ?>/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset_login') ?>/css/main.css">
@@ -36,23 +39,37 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="#" method="post">
+
+                <form class="login100-form validate-form" action="<?= base_url('Home/login') ?>" method="post">
                     <div style="text-align: center;">
                         <img src="<?= base_url('asset_login') ?>/images/icons/logoc-food.png" width="120px" style="">
                     </div> <br>
                     <span class="login100-form-title p-b-43">
                         Cashier <br> Web
                     </span>
+                    <!-- Alert -->
+                    <?php if (session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <?= session()->getFlashdata('success') ?>
+                        </div>
+                    <?php endif; ?>
 
-
-                    <div class="wrap-input100 validate-input" data-validate="Valid username is required: 0123456789">
+                    <?php if (session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger">
+                            <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="wrap-input100 validate-input" data-validate="Username harus diisi!">
                         <input class="input100" type="text" name="username">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Username</span>
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <div class="wrap-input100 validate-input" data-validate="Password harus diisi">
                         <input class="input100" type="password" name="password">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
@@ -79,12 +96,8 @@
                             Login
                         </button>
                     </div>
-<br>
-                    <div class="container-login100-form-btn">
-                        <a href="<?= base_url('Admin') ?>" class="login100-form-btn">
-                            Dashboard
-                        </a>
-                    </div>
+                    <br>
+
 
                     <div class="text-center p-t-46 p-b-20">
                         <span class="txt2">

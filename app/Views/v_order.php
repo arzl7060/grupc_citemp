@@ -42,19 +42,12 @@
                   </tr>
                 </tbody>
                 </table>
+                </div>
+                <!-- /.card-body -->
+                </div>
+               <!-- /.card -->
               </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
+              
 <script>
   $(function () {
     $("#example1").DataTable({
