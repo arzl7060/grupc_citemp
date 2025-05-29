@@ -66,10 +66,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a href="<?= base_url('Admin') ?>" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a class="nav-link <?= $menu == 'Contact' ? 'active' : '' ?>" href="<?= base_url('Contact') ?>"
+            role="button">Contact</a>
         </li>
       </ul>
 
@@ -137,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
 
               <li class="nav-item">
-                <a href="<?= base_url('Penjualan') ?>" class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
+                <a href="<?= base_url('Penjualan2') ?>" class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
                   <i class="nav-icon fas fa-solid fa-cash-register"></i>
                   <p>
                     Penjualan

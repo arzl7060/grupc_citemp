@@ -111,11 +111,11 @@ class Filters extends BaseFilters
     public array $filters = [
         // Contoh filter untuk semua halaman yang membutuhkan login
         'auth' => [
-            'before' => ['Admin', 'Admin/*', 'Order', 'Order/*', 'Penjualan', 'Penjualan/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*']
+            'before' => ['Admin', 'Admin/*', 'Contact', 'Contact/*', 'Order', 'Order/*', 'Penjualan', 'Penjualan/*', 'Penjualan2', 'Penjualan2/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*', 'Setting', 'Setting/*']
         ], // Semua halaman butuh login
 
         'adminFilter' => [
-            'before' => ['Admin', 'Admin/*', 'Order', 'Order/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*']
+            'before' => ['Admin', 'Admin/*', 'Contact', 'Contact/*', 'Order', 'Order/*', 'Produk', 'Produk/*', 'Kategori', 'Kategori/*', 'User', 'User/*', 'Satuan', 'Satuan/*', 'Laporan', 'Laporan/*', 'Setting', 'Setting/*']
         ], // Admin bisa akses semua
 
     ];
