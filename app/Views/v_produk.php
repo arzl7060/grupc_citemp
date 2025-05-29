@@ -8,8 +8,13 @@
         "><i class="fas fa-plus">
             Add Data</i>
         </button>
-        <button type="button" class="btn btn-tool"><i class="fas fa-print">
-            Print</i>
+        <button onclick="
+        var screenWidth = window.screen.width;
+        var halfWidth = screenWidth / 2; // Menghitung setengah lebar layar
+        var windowFeatures = 'toolbar=no, width=1000, height=800, left=100, top=100'; // Gabungkan dengan fitur lain
+        window.open('<?= base_url('Laporan/printProduk') ?>', 'NewWin', windowFeatures);
+            " type="button" class="btn btn-tool">
+          <i class="fas fa-print"> Print</i>
         </button>
       </div>
       <!-- /.card-tools -->
@@ -56,7 +61,7 @@
         <tbody>
           <?php $no = 1;
           foreach ($produk as $key => $value) { ?>
-            <tr class="text-center">
+            <tr class="text-center <?= $value['stok'] <= 0 ? 'bg-danger' : '' ?>">
               <td><?= $no++ ?></td>
               <td><?= $value['kode_produk'] ?></td>
               <td><?= $value['nama_produk'] ?></td>
@@ -66,9 +71,9 @@
               <td><?= $value['stok'] ?></td>
               <td><?= $value['nama_satuan'] ?></td>
               <td>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#update-data<?= $value['id'] ?>"><i
-                    class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger" data-toggle="modal" data-target="#delete-data<?= $value['id'] ?>"><i
+                <button class="btn btn-warning btn-xs" data-toggle="modal"
+                  data-target="#update-data<?= $value['id'] ?>"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-data<?= $value['id'] ?>"><i
                     class="fas fa-trash"></i></button>
               </td>
             </tr>
@@ -130,7 +135,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Rp.</span>
             </div>
-            <input type="number" name="harga_beli" id="harga_beli" class="form-control" value="<?= old('harga_beli') ?>"
+            <input name="harga_beli" id="harga_beli" class="form-control" value="<?= old('harga_beli') ?>"
               placeholder="Harga Beli" required>
           </div>
         </div>
@@ -140,7 +145,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Rp.</span>
             </div>
-            <input type="number" name="harga_jual" id="harga_jual" class="form-control" value="<?= old('harga_jual') ?>"
+            <input name="harga_jual" id="harga_jual" class="form-control" value="<?= old('harga_jual') ?>"
               placeholder="Harga Jual" required>
           </div>
         </div>
@@ -302,16 +307,16 @@
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 
-  //
-  //   new AutoNumeric('#harga_beli', {
-  //     digitGroupSeparator: ',',
-  //     decimalPlace: 0,
-  //   });
 
-  //   new AutoNumeric('#harga_jual', {
-  //     digitGroupSeparator: ',',
-  //     decimalPlace: 0,
-  //   });
-  // 
+  new AutoNumeric('#harga_beli', {
+    digitGroupSeparator: ',',
+    decimalPlace: 0,
+  });
+
+  new AutoNumeric('#harga_jual', {
+    digitGroupSeparator: ',',
+    decimalPlace: 0,
+  });
+
 
 </script>

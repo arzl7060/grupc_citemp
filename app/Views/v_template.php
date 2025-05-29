@@ -17,8 +17,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet"
+    href="<?= base_url('AdminLTE') ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/dist/css/adminlte.min.css?v=3.2.0">
 
@@ -47,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
 
   <!-- Auto Nummberic -->
-  <script src="<?= base_url('autoNumeric') ?>/src/AutoNumeric.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/autonumeric@latest"></script>
 
 <body class="hold-transition sidebar-mini">
 
