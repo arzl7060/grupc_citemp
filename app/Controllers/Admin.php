@@ -20,7 +20,14 @@ class Admin extends BaseController
             'menu' => 'dashboard',
             'submenu' => '',
             'page' => 'dashboard',
-
+            'grafik' => $this->AdminModel->grafik(),
+            'pendapatanHariIni' => $this->AdminModel->pendapatanHariIni(),
+            'pendapatanBulanIni' => $this->AdminModel->pendapatanBulanIni(),
+            'pendapatanTahunIni' => $this->AdminModel->pendapatanTahunIni(),
+            'jumlahProduk' => $this->AdminModel->jumlahProduk(),
+            'jumlahKategori' => $this->AdminModel->jumlahKategori(),
+            'jumlahOrder' => $this->AdminModel->jumlahOrder(),
+            'jumlahUser' => $this->AdminModel->jumlahUser(),
         ];
         return view('v_template', $data);
     }
