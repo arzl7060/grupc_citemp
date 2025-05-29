@@ -35,5 +35,25 @@ class Laporan extends BaseController
         return view('laporan/v_templatePrint', $data);
     }
 
+    public function laporanHarian()
+    {
+        $data = [
+            'title' => 'Laporan',
+            'subtitle' => 'Laporan Harian',
+            'menu' => 'laporan',
+            'submenu' => 'laporan_harian',
+            'page' => 'laporan/v_laporan_harian',
+            // 'kategori' => $this->KategoriModel->allData(),
+        ];
+        return view('v_template', $data);
+    }
+    public function viewLaporanHarian()
+    {
+        $response = [
+            'data' => view('laporan/v_table_laporan_harian')
+        ];
+        echo json_decode($response);
+    }
+
 }
 
