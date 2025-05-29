@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $title ?></title>
+  <link rel="icon" href="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png" type="image/png" />
 
   <link rel="icon" type="image/png" href="<?= base_url('asset_login') ?>/images/icons/logoc-food.png" />
   <!-- Google Font: Source Sans Pro -->

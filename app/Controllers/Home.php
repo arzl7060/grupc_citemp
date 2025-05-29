@@ -64,7 +64,7 @@ class Home extends BaseController
             if ($user['role'] == 'admin') {
                 return redirect()->to(base_url('Admin')); // Redirect ke halaman admin
             } else {
-                return redirect()->to(base_url('Penjualan')); // Redirect ke halaman kasir
+                return redirect()->to(base_url('Penjualan2')); // Redirect ke halaman kasir
             }
         } else {
             // Set flashdata untuk pesan error jika login gagal

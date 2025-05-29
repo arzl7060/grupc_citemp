@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>E Kasir | <?= $title ?></title>
+    <link rel="icon" href="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png" type="image/png" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

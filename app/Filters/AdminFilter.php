@@ -11,7 +11,7 @@ class AdminFilter implements FilterInterface
     {
         if (session()->get('role') !== 'admin') {
             session()->setFlashdata('error', 'Hanya Admin yang bisa akses!');
-            return redirect()->to('Penjualan');
+            return redirect()->to('Penjualan2');
         }
     }
 
