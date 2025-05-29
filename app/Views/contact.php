@@ -12,7 +12,7 @@
     <div class="col-auto mb-4 mx-2"> <!-- mx-2 untuk spacing horizontal -->
       <div class="card card-primary card-outline" style="width: 220px;">
         <div class="card-body text-center">
-          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png"
+          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/1.jpg"
             style="width: 128px; height: 128px; object-fit: cover;">
           <h4>Ahmad Rizal</h4>
           <br>
@@ -25,7 +25,7 @@
     <div class="col-auto mb-4 mx-2">
       <div class="card card-primary card-outline" style="width: 220px;">
         <div class="card-body text-center">
-          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png"
+          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/3.jpeg"
             style="width: 128px; height: 128px; object-fit: cover;">
           <h4>Cecillia Dwi Putri</h4>
           <br>
@@ -38,7 +38,7 @@
     <div class="col-auto mb-4 mx-2">
       <div class="card card-primary card-outline" style="width: 220px;">
         <div class="card-body text-center">
-          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png"
+          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/5.jpeg"
             style="width: 128px; height: 128px; object-fit: cover;">
           <h4>Bayu Agung Nugraha</h4>
           <p class="text-secondary">042168627</p>
@@ -50,7 +50,7 @@
     <div class="col-auto mb-4 mx-2">
       <div class="card card-primary card-outline" style="width: 220px;">
         <div class="card-body text-center">
-          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png"
+          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/4.jpeg"
             style="width: 128px; height: 128px; object-fit: cover;">
           <h4>Reyhan Kamil Ikhtiawan</h4>
           <p class="text-secondary">044312517</p>
@@ -62,7 +62,7 @@
     <div class="col-auto mb-4 mx-2">
       <div class="card card-primary card-outline" style="width: 220px;">
         <div class="card-body text-center">
-          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/logoc-food.png"
+          <img class="img-fluid rounded-circle mb-3" src="<?= base_url('AdminLTE') ?>/dist/img/2.jpeg"
             style="width: 128px; height: 128px; object-fit: cover;">
           <h4>Rizieq Fadillah</h4>
           <br>

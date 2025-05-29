@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN' => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => '',
+        'hostname' => 'sql107.infinityfree.com',
+        'username' => 'if0_39111569',
+        'password' => 'In154nd1',
+        'database' => 'if0_39111569_kasir_main',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
