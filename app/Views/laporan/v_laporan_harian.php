@@ -68,8 +68,7 @@
         if (tgl == "") {
             Swal.fire('Tanggal Belum Dipilih!');
         } else {
-            var windowFeatures = 'toolbar=no, width=1000, height=800, left=100, top=100, scrollbars=yes, resizable=yes';
-            window.open('<?= base_url('Laporan/PrintLaporanHarian') ?>/' + tgl, 'NewWin', windowFeatures);
+            window.open('<?= base_url('Laporan/PrintLaporanHarian') ?>/' + tgl, 'NewWin', 'toolbar=no, width=1000, height=800, left=100, top=100, scrollbars=yes');
         }
     }
 </script>

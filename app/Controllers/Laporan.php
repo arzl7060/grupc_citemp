@@ -72,7 +72,7 @@ class Laporan extends BaseController
             'tgl' => $tgl,
             'web' => $this->AdminModel->detailData(),
         ];
-        return view('laporan/v_templatePrint', $data);
+        return view('laporan/v_temp_print_laporan', $data);
     }
 
     public function LaporanBulanan()
