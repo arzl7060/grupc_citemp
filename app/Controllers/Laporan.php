@@ -87,34 +87,63 @@ class Laporan extends BaseController
         return view('v_template', $data);
     }
 
+    private function getNamaBulanIndonesia(int $bulanAngka): string
+    {
+        $namaBulanIndonesia = [
+            1 => 'Januari',
+            2 => 'Februari',
+            3 => 'Maret',
+            4 => 'April',
+            5 => 'Mei',
+            6 => 'Juni',
+            7 => 'Juli',
+            8 => 'Agustus',
+            9 => 'September',
+            10 => 'Oktober',
+            11 => 'November',
+            12 => 'Desember'
+        ];
+
+        return $namaBulanIndonesia[$bulanAngka] ?? 'Bulan Tidak Valid';
+    }
+
     public function viewLaporanBulanan()
     {
-        $bulan = $this->request->getPost('bulan');
-        $tahun = $this->request->getPost('tahun');
+        $bulan = (int) $this->request->getPost('bulan'); // Pastikan ini integer
+        $tahun = (int) $this->request->getPost('tahun'); // Pastikan ini integer
+
+        // Ubah angka bulan menjadi nama bulan Bahasa Indonesia
+        $namaBulanTampil = $this->getNamaBulanIndonesia($bulan);
+
         $data = [
             'title' => 'Laporan Bulanan Penjualan',
             'databulanan' => $this->LaporanModel->DataBulanan($bulan, $tahun),
-            'bulan' => $bulan,
+            'bulan' => $namaBulanTampil, // Menggunakan nama bulan yang sudah diformat
             'tahun' => $tahun,
         ];
         $response = [
             'data' => view('laporan/v_table_laporan_bulanan', $data)
         ];
         echo json_encode($response);
-        // echo dd($this->LaporanModel->DataHarian($tgl));
     }
 
     public function PrintLaporanBulanan($bulan, $tahun)
     {
+        $bulan = (int) $bulan; // Pastikan ini integer dari URL segment
+        $tahun = (int) $tahun; // Pastikan ini integer dari URL segment
+
+        // Ubah angka bulan menjadi nama bulan Bahasa Indonesia
+        $namaBulanTampil = $this->getNamaBulanIndonesia($bulan);
+
         $data = [
             'title' => 'Laporan Bulanan Penjualan',
             'page' => 'laporan/v_print_lap_bulanan',
             'databulanan' => $this->LaporanModel->DataBulanan($bulan, $tahun),
-            'bulan' => $bulan,
+            'bulan' => $namaBulanTampil, // Menggunakan nama bulan yang sudah diformat
             'tahun' => $tahun,
             'web' => $this->AdminModel->detailData(),
         ];
-        return view('laporan/v_templatePrint', $data);
+        return view('laporan/v_temp_print_laporan', $data);
     }
 
     public function LaporanTahunan()
@@ -152,7 +181,7 @@ class Laporan extends BaseController
             'tahun' => $tahun,
             'web' => $this->AdminModel->detailData(),
         ];
-        return view('laporan/v_templatePrint', $data);
+        return view('laporan/v_temp_print_laporan', $data);
     }
 
 }
