@@ -3,26 +3,26 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\PenjualanModel;
+use App\Models\PenjualanModel2;
 
 class Penjualan2 extends BaseController
 {
-    protected $PenjualanModel;
+    protected $PenjualanModel2;
 
     public function __construct()
     {
         // Inisialisasi model di dalam konstruktor
-        $this->PenjualanModel = new PenjualanModel();
+        $this->PenjualanModel2 = new PenjualanModel2();
     }
     public function index()
     {
         $cart = \Config\Services::cart();
         $data = [
             'title' => 'Penjualan2',
-            'no_faktor' => $this->PenjualanModel->NoFaktor(),
+            'no_faktor' => $this->PenjualanModel2->NoFaktor(),
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
-            'produk' => $this->PenjualanModel->allProduk(),
+            'produk' => $this->PenjualanModel2->allProduk(),
         ];
         return view('v_penjualan2', $data);
     }
@@ -30,7 +30,7 @@ class Penjualan2 extends BaseController
     public function cekProduk()
     {
         $kode_produk = $this->request->getPost('kode_produk');
-        $produk = $this->PenjualanModel->cekProduk($kode_produk);
+        $produk = $this->PenjualanModel2->cekProduk($kode_produk);
         if ($produk) {
             $data = [
                 'nama_produk' => $produk['nama_produk'],
@@ -94,7 +94,7 @@ class Penjualan2 extends BaseController
     {
         $cart = \Config\Services::cart();
         $produk = $cart->contents();
-        $no_faktor = $this->PenjualanModel->NoFaktor();
+        $no_faktor = $this->PenjualanModel2->NoFaktor();
         $dibayar = str_replace(',', '', $this->request->getPost('dibayar'));
         $kembalian = str_replace(',', '', $this->request->getPost('kembalian'));
         foreach ($produk as $key => $value) {
@@ -107,7 +107,7 @@ class Penjualan2 extends BaseController
                 'total_harga' => $value['subtotal'],
                 'untung' => ($value['price'] - $value['options']['modal']) * $value['qty'],
             ];
-            $this->PenjualanModel->insertRinciPenjualan($data);
+            $this->PenjualanModel2->insertRinciPenjualan($data);
         }
         $data = [
             'no_faktor' => $no_faktor,
@@ -118,7 +118,7 @@ class Penjualan2 extends BaseController
             'dibayar' => $dibayar,
             'kembalian' => $kembalian,
         ];
-        $this->PenjualanModel->insertPenjualan($data);
+        $this->PenjualanModel2->insertPenjualan($data);
         $cart->destroy();
         session()->setFlashdata('success', 'Transaksi berhasil disimpan!');
         return redirect()->to('Penjualan2');
