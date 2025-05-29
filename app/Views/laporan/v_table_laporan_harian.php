@@ -31,15 +31,14 @@
         <th>Total</th>
       </tr>
       <?php $no = 1;
-      foreach ($dataharian as $key => $value) {
+      foreach ($dataharian as $key => $value) { // pengulangan data penjualan harian
         $grandtotal[] = $value['total_harga'];
         ?>
-
         <tr>
           <td class="text-center"><?= $no++ ?></td>
           <td class="text-center"><?= $value['kode_produk'] ?></td>
           <td><?= $value['nama_produk'] ?></td>
-          <td class="text-right">Rp. <?= number_format($value['harga_jual'], 0) ?></td>
+          <td class="text-right">Rp. <?= number_format($value['harga'], 0) ?></td>
           <td class="text-center"><?= $value['qty'] ?></td>
           <td class="text-right">Rp. <?= number_format($value['total_harga'], ) ?></td>
           <td></td>

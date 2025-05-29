@@ -9,9 +9,7 @@
             Add Data</i>
         </button>
         <button onclick="
-        var screenWidth = window.screen.width;
-        var halfWidth = screenWidth / 2; // Menghitung setengah lebar layar
-        var windowFeatures = 'toolbar=no, width=1000, height=800, left=100, top=100'; // Gabungkan dengan fitur lain
+        var windowFeatures = 'toolbar=no, width=1000, height=800, left=100, top=100';
         window.open('<?= base_url('Laporan/printProduk') ?>', 'NewWin', windowFeatures);
             " type="button" class="btn btn-tool">
           <i class="fas fa-print"> Print</i>

@@ -23,9 +23,10 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-5 d-flex align-items-end">  <!-- Perbaikan alignment -->
+        <div class="col-sm-5 d-flex align-items-end"> <!-- Perbaikan alignment -->
           <div class="form-group">
-            <button onclick="viewTableLaporan()" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#cari-produk">
+            <button onclick="viewTableLaporan()" class="btn btn-primary btn-flat" data-toggle="modal"
+              data-target="#cari-produk">
               <i class="fas fa-file mr-1"></i>View Laporan
             </button>
             <button onclick="PrintLaporan()" class="btn btn-success btn-flat ml-1">
@@ -37,7 +38,7 @@
       <!-- /.row -->
 
       <!-- Row untuk tabel -->
-      <div class="row mt-3">  <!-- Tambah margin top -->
+      <div class="row mt-3"> <!-- Tambah margin top -->
         <div class="col-12">
           <hr>
           <div class="Table">
@@ -45,7 +46,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
     <!-- /.card-body -->
   </div>
@@ -53,70 +54,71 @@
 </div>
 
 <script>
-    function viewTableLaporan(){
-        let bulan = $('#bulan').val();
-        let tahun = $('#tahun').val();
-        if(bulan ==''){
-            Swal.fire('Bulan Belum Dipilih!');
-        }else if(tahun == ''){
-            Swal.fire('Tahun Belum Dipilih!');
-        }else{
-        $.ajax({
-            type: "post",
-            url: "<?=base_url('Laporan/viewLaporanBulanan') ?>",
-            data: {
-                bulan: bulan,
-                tahun: tahun,
-            },
-            dataType: "JSON",
-            success: function (response) {
-                if(response.data){
-                    $('.Table').html(response.data)
-                }
-            }
-        });
+  function viewTableLaporan() {
+    let bulan = $('#bulan').val();
+    let tahun = $('#tahun').val();
+    if (bulan == '') {
+      Swal.fire('Bulan Belum Dipilih!');
+    } else if (tahun == '') {
+      Swal.fire('Tahun Belum Dipilih!');
+    } else {
+      $.ajax({
+        type: "post",
+        url: "<?= base_url('Laporan/viewLaporanBulanan') ?>",
+        data: {
+          bulan: bulan,
+          tahun: tahun,
+        },
+        dataType: "JSON",
+        success: function (response) {
+          if (response.data) {
+            $('.Table').html(response.data)
+          }
         }
+      });
     }
+  }
 
-    function PrintLaporan(){
-        let bulan = $('#bulan').val();
-        let tahun = $('#tahun').val();
-        if(bulan ==''){
-            Swal.fire('Bulan Belum Dipilih!');
-        }else if(tahun == ''){
-            Swal.fire('Tahun Belum Dipilih!');
-        }else{
-            NewWin = window.open('<?= base_url('Laporan/PrintLaporanBulanan')?>/' + bulan + '/' + tahun,'NewWin','toolbar=no, widht=1500,height=800,scrollbars=yes');
-        }
+  function PrintLaporan() {
+    let bulan = $('#bulan').val();
+    let tahun = $('#tahun').val();
+    if (bulan == '') {
+      Swal.fire('Bulan Belum Dipilih!');
+    } else if (tahun == '') {
+      Swal.fire('Tahun Belum Dipilih!');
+    } else {
+      window.open('<?= base_url('Laporan/PrintLaporanBulanan') ?>/' + bulan + '/' + tahun, 'NewWin', 'toolbar=no, widht=1000,height=800,scrollbars=yes');
+
     }
+  }
 
-    function populateMonths(selectId) {
+  function populateMonths(selectId) {
     const months = [
-        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
     ];
-    
-    const selectElement = document.getElementById(selectId);
-    
-    months.forEach((month, index) => {
-        selectElement.add(new Option(month, index + 1));
-    });
-}
 
-function populateYearDropdown(selectId, yearsToAdd) {
+    const selectElement = document.getElementById(selectId);
+
+    months.forEach((month, index) => {
+      selectElement.add(new Option(month, index + 1));
+    });
+  }
+
+  function populateYearDropdown(selectId, yearsToAdd) {
     const selectElement = document.getElementById(selectId);
     const currentYear = new Date().getFullYear();
-    
+
     for (let i = 0; i <= yearsToAdd; i++) {
-        const year = currentYear + i;
-        selectElement.add(new Option(year, year));
+      const year = currentYear + i;
+      selectElement.add(new Option(year, year));
     }
-}
+  }
 
-function initDropdowns() {
+  function initDropdowns() {
     populateMonths('bulan');
-    populateYearDropdown('tahun', 5); 
-}
+    populateYearDropdown('tahun', 5);
+  }
 
-document.addEventListener('DOMContentLoaded', initDropdowns);
+  document.addEventListener('DOMContentLoaded', initDropdowns);
 </script>

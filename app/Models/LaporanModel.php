@@ -14,7 +14,7 @@ class LaporanModel extends Model
             ->where('orders.tanggal', $tgl)
             ->select('rincian.kode_produk')
             ->select('produk.nama_produk')
-            ->select('rincian.harga_jual')
+            ->select('rincian.harga')
             ->groupBy('rincian.kode_produk')
             ->selectSum('rincian.qty')
             ->selectSum('rincian.total_harga')
@@ -24,7 +24,7 @@ class LaporanModel extends Model
     public function DataBulanan($bulan, $tahun)
     {
         return $this->db->table('rincian')
-            ->join('orders', 'orders.no_faktur=rincian.no_faktor')
+            ->join('orders', 'orders.no_faktor=rincian.no_faktor')
             ->where('month(orders.tanggal)', $bulan)
             ->where('year(orders.tanggal)', $tahun)
             ->select('orders.tanggal')
@@ -36,7 +36,7 @@ class LaporanModel extends Model
     public function DataTahunan($tahun)
     {
         return $this->db->table('rincian')
-            ->join('orders', 'orders.no_faktur=rincian.no_faktor')
+            ->join('orders', 'orders.no_faktor=rincian.no_faktor')
             ->where('year(orders.tanggal)', $tahun)
             ->select('month(orders.tanggal) as bulan')
             ->groupBy('month(orders.tanggal)')

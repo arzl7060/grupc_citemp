@@ -23,6 +23,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/dist/css/adminlte.min.css?v=3.2.0">
 
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
+  <script src="<?= base_url('AdminLTE') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
   <!-- jQuery -->
   <script src="<?= base_url('AdminLTE') ?>/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -190,20 +194,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="<?= base_url('Laporan/laporanHarian') ?>"
-                      class="nav-link <?= ($submenu == 'laporan') ? 'active' : '' ?>">
+                      class="nav-link <?= ($submenu == 'laporan-harian') ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Laporan Harian</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url('Kategori') ?>"
-                      class="nav-link <?= ($submenu == 'kategori') ? 'active' : '' ?>">
+                    <a href="<?= base_url('Laporan/laporanBulanan') ?>"
+                      class="nav-link <?= ($submenu == 'laporan-bulanan') ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Laporan Bulanan</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= base_url('Satuan') ?>" class="nav-link <?= ($submenu == 'satuan') ? 'active' : '' ?>">
+                    <a href="<?= base_url('Laporan/laporanTahunan') ?>"
+                      class="nav-link <?= ($submenu == 'laporan-tahunan') ? 'active' : '' ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Laporan Tahunan</p>
                     </a>
@@ -274,10 +279,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- REQUIRED SCRIPTS -->
 
 
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-    integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-    data-cf-beacon='{"rayId":"939898d9684ace1e","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.4.0-1-g37f21b1","token":"2437d112162f4ec4b63c3ca0eb38fb20"}'
-    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
